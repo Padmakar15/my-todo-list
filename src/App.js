@@ -5,7 +5,6 @@ import "./App.css";
 const App = () => {
   const [currentItem, setCurrentItem] = useState("");
   const localItem = JSON.parse(localStorage.getItem("itemList"));
-  console.log("11", localItem);
   const [itemList, setItemList] = useState(localItem ? localItem : []);
   const addItemToList = () => {
     setItemList([
