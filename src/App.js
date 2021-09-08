@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import List from "./List";
 import "./App.css";
 
@@ -11,9 +11,12 @@ const App = () => {
       ...itemList,
       { item: currentItem, id: Math.floor(Math.random() * 1000000) },
     ]);
-    localStorage.setItem("itemList", JSON.stringify(itemList));
+
     setCurrentItem("");
   };
+  useEffect(() => {
+    localStorage.setItem("itemList", JSON.stringify(itemList));
+  }, [itemList]);
   return (
     <div className="App">
       <div className="App-header">
