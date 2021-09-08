@@ -4,6 +4,7 @@ import "./List.css";
 const List = ({ itemList, setItemList }) => {
   const deleteItemFromList = (id) => {
     const newList = itemList.filter((item) => item.id !== id);
+    localStorage.setItem("itemList", JSON.stringify(newList));
     setItemList(newList);
   };
   return (

@@ -4,12 +4,15 @@ import "./App.css";
 
 const App = () => {
   const [currentItem, setCurrentItem] = useState("");
-  const [itemList, setItemList] = useState([]);
+  const localItem = JSON.parse(localStorage.getItem("itemList"));
+  console.log("11", localItem);
+  const [itemList, setItemList] = useState(localItem ? localItem : []);
   const addItemToList = () => {
     setItemList([
       ...itemList,
-      { item: currentItem, id: Math.floor(Math.random() * 100) },
+      { item: currentItem, id: Math.floor(Math.random() * 1000000) },
     ]);
+    localStorage.setItem("itemList", JSON.stringify(itemList));
     setCurrentItem("");
   };
   return (
